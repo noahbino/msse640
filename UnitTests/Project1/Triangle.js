@@ -23,4 +23,4 @@ function triangleType(a, b, c) {
     }
 }
 
-module.exports = { triangleType, TriangleType };
+module.exports = { triangleType, TriangleType }
