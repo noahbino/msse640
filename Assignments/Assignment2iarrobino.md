@@ -1,0 +1,8 @@
+*As software engineers, how should we distinguish between a system that makes mistakes and one that "bullshits" — generating plausible-sounding but unreliable output? Give a real-world example.*
+
+*When designing or integrating large language models (LLMs), what responsibilities do we have to prevent the spread of 'bullshit'?*
+
+*Can the same tools used to produce misinformation also be engineered to detect or mitigate it — and what design patterns or guardrails might make that possible?*
+
+# Response
+As software engineers it's our responsibility to ensure the integrity of our codebase, especially when using AI. AI can hallucinate and create bullshit output that can look legit but is actually complete garbage code. A simple way to distinguish mistakes from bullshit is the cadence of mistakes, if an LLM is producing more incorrect results than correct, it can be chalked up as a BS LLM. This mean we need to fact check the results we are getting back from LLMs by getting a second opinion and cross checking the references. In the context of software engineering, we can implement unit testing. We need to be testing every bit of code that AI is producing to ensure the code executes in the way we were expecting it to. We could even use a different LLM to fact check and cross reference the results given back by the first LLM. This would require an LLM that we can confirm does not produce bullshit first, otherwise we'll end up in a hallucinagetic feedback loop where both LLMs are feeding off of eachothers false information. 
