@@ -88,7 +88,6 @@ This API does not contain any POST requests, but I created a mock POST Request t
 
 ![Currencies Request](/Assets/Screenshot%202025-07-29%20at%205.38.45 PM.png)
 
-
 ### Conclusion & Recommendations
 
 This project provided valuable insight on how to use tools like Postman to complete integration testing for applications. Whether you're developing a website, mobile app, or enterprise application, integration testing is a critical step in connecting the frontend to the backend. To improve this assignment I would recommend having students work in groups and host their own APIs, developing endpoints for GET and POST, then testing those via Postman.
