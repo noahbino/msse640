@@ -3,6 +3,7 @@
 
 ## Table of Contents
 - [Part 1: Research on APIs](#part-1-research-on-apis)
+- [Part 2: Postman Demo](#part-2-api-demo-with-postman)
 
 
 ### Part 1: Research on APIs
