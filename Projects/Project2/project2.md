@@ -2,7 +2,7 @@
 ## MSSE640 - Software Security Engineering
 
 ## Table of Contents
-= [Introduction](#introduction)
+- [Introduction](#introduction)
 - [Part 1: Research on APIs](#part-1-research-on-apis)
 - [Part 2: Postman Demo](#part-2-api-demo-with-postman)
 - [Conlcusion & Recommendations](#conclusion--recommendations)
