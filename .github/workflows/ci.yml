@@ -23,7 +23,19 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest pytest-cov
 
-      - name: Run tests
+      - name: Debug tree
+        run: |
+          ls -la
+          echo "--- Assignments/Assignment6 ---"
+          ls -la Assignments/Assignment6
+          echo "--- src ---"
+          ls -la Assignments/Assignment6/src || true
+          echo "--- tests ---"
+          ls -la Assignments/Assignment6/tests || true
+          echo "--- show test headers ---"
+          sed -n '1,50p' Assignments/Assignment6/tests/test_app.py || true
+
+      - name: Run tests (with coverage)
         env:
           PYTHONPATH: ${{ github.workspace }}/Assignments/Assignment6/src
         run: |
