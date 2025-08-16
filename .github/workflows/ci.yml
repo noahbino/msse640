@@ -10,10 +10,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: Assignments/Assignment6
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -26,23 +22,22 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           pip install pytest pytest-cov
 
-      # Optional: debug to verify paths/files in CI
-      - name: Show tree
+      - name: Debug tree
         run: |
           pwd
           ls -la
+          echo "--- Assignments/Assignment6 ---"
+          ls -la Assignments/Assignment6 || true
           echo "--- src ---"
-          ls -la src || true
+          ls -la Assignments/Assignment6/src || true
           echo "--- tests ---"
-          ls -la tests || true
-          echo "--- pytest.ini ---"
-          cat pytest.ini || echo "no pytest.ini"
+          ls -la Assignments/Assignment6/tests || true
 
       - name: Run tests (with coverage)
         env:
-          PYTHONPATH: src
+          PYTHONPATH: ${{ github.workspace }}/Assignments/Assignment6/src
         run: |
+          cd Assignments/Assignment6
           python -m pytest --cov=src --cov-report=term-missing -q
