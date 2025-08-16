@@ -10,6 +10,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: Assignments/Assignment6
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -19,25 +23,26 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Cache pip
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          # fallback if no requirements.txt – install pytest directly
-          python - <<'PY'
-          import os, subprocess
-          if not os.path.exists('requirements.txt'):
-              subprocess.check_call(['pip','install','pytest','pytest-cov'])
-          PY
+          pip install pytest pytest-cov
+
+      # Optional: debug to verify paths/files in CI
+      - name: Show tree
+        run: |
+          pwd
+          ls -la
+          echo "--- src ---"
+          ls -la src || true
+          echo "--- tests ---"
+          ls -la tests || true
+          echo "--- pytest.ini ---"
+          cat pytest.ini || echo "no pytest.ini"
 
       - name: Run tests (with coverage)
+        env:
+          PYTHONPATH: src
         run: |
           python -m pytest --cov=src --cov-report=term-missing -q
