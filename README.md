@@ -9,3 +9,5 @@
 
 [Project #1](./Projects/UnitTests/Project1)
 [Project #2](./Projects/Project2/project2.md)
+[Project #3](./Projects/Project3/project3.md)
+[Project #4](./Projects/Project4/project4.md)
